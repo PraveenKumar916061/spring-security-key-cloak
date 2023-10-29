@@ -1,0 +1,17 @@
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/spring-api-key
+          jwk-set-uri : http://localhost:8080/realms/spring-api-key/protocol/openid-connect/certs
+
+server:
+  port: 8081
+
+jwt:
+  auth:
+    converter:
+      resourceId: api_key
+      principleAttribute: preferred_username
